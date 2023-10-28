@@ -3,17 +3,16 @@ import { checkValidData } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
-import { updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import {USER_AVATAR,BG_URL} from "../utils/constants"
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
-  const [errorMessage, setErrorMessage] = useState();
-  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch;
 
   const email = useRef(null);
@@ -44,7 +43,7 @@ const Login = () => {
 
           updateProfile(user, {
             displayName: fullname.current.value,
-            photoURL: "https://example.com/jane-q-user/profile.jpg",
+            photoURL: USER_AVATAR
           })
             .then(() => {
               const {uid, email, displayName, photoURL} = auth.currentUser;
@@ -56,7 +55,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -77,12 +75,12 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
+          console.log("User signed in:", user);
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
+          console.log("Sign-in error:", errorCode, errorMessage);
           setErrorMessage(errorCode + "-" + errorMessage);
         });
     }
@@ -92,8 +90,8 @@ const Login = () => {
     <div className="md:w-32 lg:w-48">
       <div className="absolute height-full">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/a73c4363-1dcd-4719-b3b1-3725418fd91d/fe1147dd-78be-44aa-a0e5-2d2994305a13/IN-en-20231016-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-          alt="logo"></img>
+          src={BG_URL}
+          alt="background"></img>
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
