@@ -26,6 +26,12 @@
 - Update store for trailer video data
 - Embaded the YT video & make it autoplay & mute
 - Tailwind css to make container awesome
+- Build scondary component
+- Build Movie List
+- Found out TMDB Image CDN
+- Made the Browse page amazing with Tailwind css
+- usePoplular, useTopRated, useUpcoming custom hooks
+
 
 
 

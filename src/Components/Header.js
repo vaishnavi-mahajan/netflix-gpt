@@ -37,12 +37,12 @@ const Header = () => {
 
 
   return (
-    <div className=' flex justify-between absolute px-28 py-2 w-screen bg-gradient-to-b from-black z-10'>
-        <img className="w-44"
+    <div className='flex justify-between absolute px-8 py-2 w-screen bg-gradient-to-b from-black z-10 flex-col md:flex-row'>
+        <img className="w-44 mx-auto md:mx-0"
          src={LOGO_URL}
         atl="logo"></img>
         {user && (<div>
-          <img className='w-[35px] h-[35px] m-2'
+          <img className='w-[35px] h-[35px]'
           atl="usericon"
           src={user?.photoURL}></img>
         <button className='text-white '
