@@ -31,7 +31,10 @@
 - Found out TMDB Image CDN
 - Made the Browse page amazing with Tailwind css
 - usePoplular, useTopRated, useUpcoming custom hooks
-
+- GPT search page
+- GPT search bar
+- (Feature) Multi-language feature in our App
+- Integrate GPT APIs(get openAI key)
 
 
 
