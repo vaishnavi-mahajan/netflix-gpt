@@ -5,7 +5,7 @@ import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO_URL, SUPPORTED_LANGUAGES } from "../utils/constants";
+import { LOGO_URL, SUPPORTED_LANGUAGES,USER_LOGO } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configSlice";
 
@@ -67,13 +67,15 @@ const Header = () => {
           {SUPPORTED_LANGUAGES.map(lang=><option  key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
          </select>
          )}
-          <button className="py-2 px-4 m-2 bg-red-800 text-white rounded-lg mx-4 my-2"
+          <button className="py-2 px-4 m-2 bg-red-600 text-white rounded-lg mx-4 my-2"
           onClick={handleGPTSearchClick}> 
           {showGptsearch? "Home" : "GPT Search"}</button>
           <img
             className="w-[35px] h-[35px] my-2"
             atl="usericon"
-            src={user?.photoURL}></img>
+            // src={user?.photoURL}
+              src={USER_LOGO}>
+            </img>
           <button className="text-white mx-1" onClick={handleSignOut}>
             Sign Out
           </button>

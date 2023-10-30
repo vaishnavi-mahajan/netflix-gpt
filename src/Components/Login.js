@@ -85,7 +85,7 @@ const Login = () => {
 
   return (
     <div className="md:w-32 lg:w-48">
-      <div className="absolute height-full">
+      <div className="absolute height-full opacity-90">
         <img
           src={BG_URL}
           alt="background"></img>
