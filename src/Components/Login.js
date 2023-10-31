@@ -85,8 +85,8 @@ const Login = () => {
 
   return (
     <div className="md:w-32 lg:w-48">
-      <div className="absolute opacity-90">
-        <img className="h-screen object-cover"
+      <div className="w-full absolute opacity-90">
+        <img className="w-full h-screen sm:h-auto object-cover"
           src={BG_URL}
           alt="background"></img>
       </div>
